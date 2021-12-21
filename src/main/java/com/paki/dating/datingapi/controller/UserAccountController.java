@@ -51,14 +51,15 @@ public class UserAccountController {
     }
 
     @GetMapping("/users/get/all")
-    List<UserAccount> getUsers() {
+    public List<UserAccount> getUsers() {
         log.info("Way yo show us all register Users");
         return userRepo.findAll();
 
     }
 
     /*
-     * public List<UserAccount> findMatches(int id) {
+     * @GetMapping("/users/matches/{id}")
+     * public List<UserAccount> findMatches(@PathVariable("id") int id) {
      * log.info("Way to find only one User");
      * UserAccount userAccount = userRepo.findById(id).get();
      * return userRepo.findMatches(userAccount.getAge(), userAccount.getCity(),
